@@ -1,6 +1,4 @@
-const express = require('express')
-const app = express()
-var fs = require('fs')
+const fs = require('fs')
 
 fs.readFile('text.txt', 'utf8', function (err, data) {
 	if (err) throw err
@@ -30,10 +28,4 @@ fs.readFile('text.txt', 'utf8', function (err, data) {
 			}
 		}
 	}
-})
-
-const port = 3000
-
-app.listen(port, () => {
-	console.log(`Example app listening at http://localhost:${port}`)
 })
