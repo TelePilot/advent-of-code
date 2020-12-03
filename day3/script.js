@@ -18,6 +18,7 @@ const checkTrees = (data, right, down) => {
 		}
 	}
 	console.log(trees)
+	return trees
 }
 
 const checkTrees2 = data => {
@@ -31,17 +32,7 @@ const checkTrees2 = data => {
 	]
 
 	for (let i = 0; i < routes.length; i++) {
-		let right = routes[i][0]
-		let down = routes[i][1]
-		let position = 0
-		let trees = 0
-		for (let i = 0; i < data.length; i += down) {
-			data[i][position] === '#' ? trees++ : null
-			position += right
-			if (position > 30) {
-				position -= 31
-			}
-		}
+		const trees = checkTrees(data, routes[i][0], routes[i][1])
 		treeArray.push(trees)
 	}
 	let result = treeArray.reduce((acc, curr) => acc * curr)
